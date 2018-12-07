@@ -64,6 +64,12 @@ export const fetchMovieImageStart = () => {
     };
 };
 
+export const clearImage = () => {
+    return {
+        type: actionTypes.CLEAR_IMAGE
+    };
+};
+
 export const fetchMovieImageSuccess = (imagePath) => {
     return {
         type: actionTypes.FETCH_MOVIE_IMAGE_SUCCESS,

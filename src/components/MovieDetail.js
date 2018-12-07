@@ -11,6 +11,10 @@ class MovieDetail extends Component {
         this.props.onFetchMovieImage(this.props.match.params.id)
     }
 
+    componentWillUnmount() {
+        this.props.onclearImage()
+    }
+
     render() {
 
         let movie = <Spinner />;
@@ -82,7 +86,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onFetchMovieDetail: (id) => dispatch(actions.fetchMovieDetail(id)),
-        onFetchMovieImage: (id) => dispatch(actions.fetchMovieImage(id))
+        onFetchMovieImage: (id) => dispatch(actions.fetchMovieImage(id)),
+        onclearImage: () => dispatch(actions.clearImage())
     }
 }
 

@@ -47,6 +47,12 @@ const reducer = (state = initialState, action) => {
                 error: action.error,
                 loading: false
             }
+        case actionTypes.CLEAR_IMAGE:
+            return {
+                ...state,
+                imagePath: '',
+                loading: true
+            }
         default:
             return state
     }
