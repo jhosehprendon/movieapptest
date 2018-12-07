@@ -58,6 +58,12 @@ export const fetchMovieDetail = (id) => {
 }
 
 // Fetching movie image
+export const fetchMovieImageStart = () => {
+    return {
+        type: actionTypes.FETCH_MOVIE_IMAGE_START
+    };
+};
+
 export const fetchMovieImageSuccess = (imagePath) => {
     return {
         type: actionTypes.FETCH_MOVIE_IMAGE_SUCCESS,
@@ -74,6 +80,7 @@ export const fetchMovieImageFail = (error) => {
 
 export const fetchMovieImage = (id) => {
     return dispatch => {
+        dispatch(fetchMovieImageStart());
         axios.get(`/movie/${id}/images?api_key=${API_KEY}`)
             .then(response => {
                 dispatch(fetchMovieImageSuccess(response.data.backdrops[0].file_path))

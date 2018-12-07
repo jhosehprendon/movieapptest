@@ -4,7 +4,8 @@ const initialState = {
     movies: [],
     error: '',
     movieDetail: {},
-    imagePath: ''
+    imagePath: '',
+    loading: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -29,15 +30,22 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 error: action.error
             }
+        case actionTypes.FETCH_MOVIE_IMAGE_START:
+            return {
+                ...state,
+                loading: true
+            }
         case actionTypes.FETCH_MOVIE_IMAGE_SUCCESS:
             return {
                 ...state,
-                imagePath: action.imagePath
+                imagePath: action.imagePath,
+                loading: false
             }
         case actionTypes.FETCH_MOVIE_IMAGE_FAIL:
             return {
                 ...state,
-                error: action.error
+                error: action.error,
+                loading: false
             }
         default:
             return state
