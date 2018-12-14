@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom'
 
 const movieItem = (props) => {
     return(
-        <Link to={`/${props.id}`}>
             <div className="collection" style={styles.listItem}>
-                <div className="collection-item">
-                    <p>Movie Title: {props.title}</p>
-                </div>
+                <Link to={`/${props.id}`}>
+                    <div className="collection-item">
+                        <p>Movie Title: {props.title}</p>
+                    </div>
+                </Link>
             </div>
-        </Link>
     )
 }
 
